@@ -1,0 +1,10 @@
+name: docker-machine
+on: push
+jobs:
+  build_pkg:
+    uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main
+    with:
+      source: git+https://gitlab.com/gitlab-org/docker-machine.git
+      debian_source: native
+      git_filter: v[0-9\.]*-gitlab.*$
+      git_tag_match: v([0-9.\-]*-gitlab.*) 
